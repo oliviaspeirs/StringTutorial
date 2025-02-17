@@ -10,28 +10,38 @@ namespace StringTutorial
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a string to encrypt:");
-            
 
-            try
+            bool inputValid = false;
+            while (!inputValid)
             {
-                
-            }
-            catch ()
-            {
-                  
-            }
-            finally
-            {
-                Console.WriteLine("Press any key to exit...");
-                Console.ReadKey();
+                try
+                {
+                    Console.WriteLine("Enter a string to encrypt:");
+                    string userInput = Console.ReadLine();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a valid string");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Unknown error, try again");
+                }
+                finally
+                {
+                    Console.WriteLine("Press any key to exit...");
+                    Console.ReadKey();
+                }
             }
         }
 
         static string EncryptString(string inputString)
         {
             // Guard clause to check if input is a valid string
-            
+            if (string.IsNullOrEmpty(inputString))
+            {
+                throw new ArgumentNullException(nameof(inputString), "cant' be null.");
+            }
             // Reverse the string
             
 
