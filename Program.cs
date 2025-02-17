@@ -18,6 +18,7 @@ namespace StringTutorial
                 {
                     Console.WriteLine("Enter a string to encrypt:");
                     string userInput = Console.ReadLine();
+                    string encrypted = EncryptString(userInput);
                 }
                 catch (FormatException)
                 {
@@ -27,11 +28,8 @@ namespace StringTutorial
                 {
                     Console.WriteLine("Unknown error, try again");
                 }
-                finally
-                {
-                    Console.WriteLine("Press any key to exit...");
-                    Console.ReadKey();
-                }
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
             }
         }
 
@@ -40,7 +38,7 @@ namespace StringTutorial
             // Guard clause to check if input is a valid string
             if (string.IsNullOrEmpty(inputString))
             {
-                throw new ArgumentNullException(nameof(inputString), "cant' be null.");
+                throw new ArgumentNullException(nameof(inputString), "cant be null.");
             }
             // Reverse the string
             
